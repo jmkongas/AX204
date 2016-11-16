@@ -70,4 +70,6 @@ while (width > 0) {
 	// ctx4.clearRect(160,20,120,120);
 	// ctx4.clearRect(160,160,120,120);
 }
+
+
 	

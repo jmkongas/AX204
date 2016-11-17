@@ -32,3 +32,6 @@ function create() {
 	ledge.body.immovable = true;
 
 }
+
+function update() {
+}

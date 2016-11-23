@@ -22,7 +22,7 @@ function create() {
 	var ground = platforms.create(0, game.world.height - 64, 'ground');
 
 	//  Scale it to fit the width of the game
-	ground.scale.setTo(1, 1);
+	ground.scale.setTo(2, 2);
 	ground.body.immovable = true;
 
 	// Ledges

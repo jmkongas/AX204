@@ -64,7 +64,7 @@ function update() {
     game.physics.arcade.collide(player, platforms);
 
     // Reset the player’s velocity (movement) if no events (ASK)
-      player.body.velocity.x = 0;
+    player.body.velocity.x = 0;
 
   	// Left key pressed
     if (cursors.left.isDown){

@@ -43,10 +43,46 @@ function create() {
 		// player animations using spritesheet and applies game physics
 		player.animations.add('left', [0, 1, 2, 3],10,true);
 		player.animations.add('right', [5, 6, 7, 8], 10, true);
+		
 		//we need to enable physics on the player 
 		game.physics.arcade.enable(player);
+		
+		//Player physics properties. Give the little guy a slight bounce.
+		player.body.bounce.y = 0.2;
+		player.body.gravity.y = 300;
+		player.body.collideWorldBounds = true;
+
+	//Creating keyboard entry
+	//set the cursors as a keyboard input
+	cursors = game.input.keyboard.createCursorKeys();
 
 }
 
 function update() {
+	//  Collide the player and the stars with the platforms
+	// this keeps the player from going through our platforms
+    game.physics.arcade.collide(player, platforms);
+
+    // Reset the player’s velocity (movement) if no events (ASK)
+      player.body.velocity.x = 0;
+
+  	// Left key pressed
+    if (cursors.left.isDown){
+        // Move to the left
+        player.body.velocity.x = -150;
+        // Play animation
+        player.animations.play('left');
+    } else if (cursors.right.isDown) {
+        player.body.velocity.x = 150;
+        player.animations.play('right');
+    } else {
+        //  Stand still
+        player.animations.stop();
+        player.frame = 4;
+      }
+    //  Allow the player to jump if they are touching the ground.
+    if (cursors.up.isDown && player.body.touching.down){
+        player.body.velocity.y = -300;
+      }
+
 }

@@ -18,7 +18,7 @@ function create() {
 
 	//Ground
 	var ground = platforms.create (0, game.world.height-64, 'ground');
-	ground.scale.setTo(2,2);
+	ground.scale.setTo(2, 2);
 }
 
 function update() {

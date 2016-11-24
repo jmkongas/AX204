@@ -17,7 +17,7 @@ function create() {
 	game.add.sprite(0, 0, 'sky');
 
 	// Making group of platforms
-	var platforms = game.add.physicsGroup();
+	platforms = game.add.physicsGroup();
 	platforms.enableBody = true;
 
 	// Ground

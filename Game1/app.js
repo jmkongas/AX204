@@ -162,10 +162,11 @@ function create() {
 		enemy1.body.bounce.y = 0.2;
 		enemy1.body.gravity.y = 500;
 		enemy1.body.collideWorldBounds = true;
+
 	enemy2 = game.add.sprite(10, 20, 'baddie');
 		// animate sprite
-		enemy2.animations.add('left', [0,1], 10, true);
-		enemy2.animations.add('right', [2,3], 10, true);
+		enemy2.animations.add('left2', [0,1], 10, true);
+		enemy2.animations.add('right2', [2,3], 10, true);
 		// add physics
 		game.physics.arcade.enable(enemy2);
 		enemy2.body.bounce.y = 0.2;
@@ -220,10 +221,10 @@ function update() {
 	// Enemy AI2
 	if (enemy2.x > 250){
 		enemy2.body.velocity.x = -120;
-		enemy2.animations.play('left');
+		enemy2.animations.play('left2');
 	} else if (enemy2.x < 5){
 		enemy2.body.velocity.x = 120;
-		enemy2.animations.play('right');
+		enemy2.animations.play('right2');
 	}
 
 	function collectStar (player,star) {

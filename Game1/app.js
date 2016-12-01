@@ -88,6 +88,8 @@
 // }
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var score = 0;
+var scoreText;
 
 function preload() {
 	game.load.image('sky','assets/sky.png');
@@ -111,13 +113,33 @@ function create() {
 	var ground = platforms.create(0, game.world.height - 50, 'ground');
 	ground.scale.setTo(2, 2);
 	ground.body.immovable = true;
-	
 
 	// Ledges
 	var ledge = platforms.create(400,400, 'ground');
 	ledge.body.immovable = true;
 	ledge = platforms.create(-150,250, 'ground');
 	ledge.body.immovable = true;
+
+	//Generate stars around the level for the player to collect
+	//Start by creating a group called "stars"
+	stars = game.add.group();
+	//Adding physics to stars
+	stars.enableBody = true;
+
+	//16,16 coordinates to place the text
+	//Score:0 is the default string to display when the game loads
+	scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+
+	//Here we'll create 12 stars evenly spaced apart
+	for (var i=0; i<12; i++) 
+	{
+		//Create a star inside the "stars" group
+		var star = stars.create(i*70,0,'star');
+		//Add gravity
+		star.body.gravity.y = 6;
+		//This gives each star a slightly random bounce value
+		star.body.bounce.y = 0.7+Math.random()*0.3;
+	}
 
 	// Player
 	player = game.add.sprite(32, 400, 'dude');
@@ -149,6 +171,10 @@ function update() {
 	// Collision for player / enemy and the platforms
 	game.physics.arcade.collide(player, platforms);
 	game.physics.arcade.collide(enemy1, platforms);
+	game.physics.arcade.collide(stars, platforms);
+	//the function "collectStar" will be called whenever the player walks over the stars
+	game.physics.arcade.overlap(player, stars, collectStar, null, this);
+
 	// Resets player sprite speed
 	player.body.velocity.x = 0;
 
@@ -181,6 +207,13 @@ function update() {
 		enemy1.animations.play('right');
 	}
 
+	function collectStar (player,star) {
+		//Removes the star from the screen
+		star.kill();
+		//Add and update the score
+		score+=10;
+		scoreText.text = "Score: " +score;
+	}
 
 
 }

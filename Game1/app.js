@@ -174,4 +174,11 @@ function update() {
 		enemy1.animations.play('right');
 	}
 
+	//Allow the player to jump if they are touching the ground
+	//The player will fall to the ground automatically because we enabled gravity
+	if (cursors.up.isDown && player.body.touching.down)
+	{
+		player.body.velocity.y = -350;
+	}
+
 }

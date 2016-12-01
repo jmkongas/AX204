@@ -189,7 +189,7 @@ function update() {
 	// Resets player sprite speed
 	player.body.velocity.x = 0;
 
-	// If key pressed
+	// If key presseddhdklh
 	if (cursors.left.isDown) {
 		player.body.velocity.x = -150;
 		player.animations.play('left');

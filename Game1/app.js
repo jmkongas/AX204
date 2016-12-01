@@ -242,6 +242,4 @@ function update() {
 	    star.body.bounce.y = 0.7 + Math.random() * 0.2;
 		}
 	}
-
-
 }

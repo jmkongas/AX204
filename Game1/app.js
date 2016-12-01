@@ -240,6 +240,5 @@ function update() {
 	    star.body.gravity.y = 200;
 	    //  This just gives each star a slightly random bounce value
 	    star.body.bounce.y = 0.7 + Math.random() * 0.2;
-		}
 	}
 }

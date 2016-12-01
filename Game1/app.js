@@ -162,6 +162,15 @@ function create() {
 		enemy1.body.bounce.y = 0.2;
 		enemy1.body.gravity.y = 500;
 		enemy1.body.collideWorldBounds = true;
+	enemy2 = game.add.sprite(10, 20, 'baddie');
+		// animate sprite
+		enemy2.animations.add('left', [0,1], 10, true);
+		enemy2.animations.add('right', [2,3], 10, true);
+		// add physics
+		game.physics.arcade.enable(enemy2);
+		enemy2.body.bounce.y = 0.2;
+		enemy2.body.gravity.y = 500;
+		enemy2.body.collideWorldBounds = true;
 
 	// Set up keyboard events
 	cursors = game.input.keyboard.createCursorKeys();
@@ -171,6 +180,7 @@ function update() {
 	// Collision for player / enemy and the platforms
 	game.physics.arcade.collide(player, platforms);
 	game.physics.arcade.collide(enemy1, platforms);
+	game.physics.arcade.collide(enemy2, platforms);
 	game.physics.arcade.collide(stars, platforms);
 	//the function "collectStar" will be called whenever the player walks over the stars
 	game.physics.arcade.overlap(player, stars, collectStar, null, this);
@@ -205,6 +215,15 @@ function update() {
 	} else if (enemy1.x < 405){
 		enemy1.body.velocity.x = 120;
 		enemy1.animations.play('right');
+	}
+
+	// Enemy AI2
+	if (enemy2.x > 250){
+		enemy2.body.velocity.x = -120;
+		enemy2.animations.play('left');
+	} else if (enemy2.x < 5){
+		enemy2.body.velocity.x = 120;
+		enemy2.animations.play('right');
 	}
 
 	function collectStar (player,star) {

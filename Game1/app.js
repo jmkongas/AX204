@@ -136,9 +136,9 @@ function create() {
 		//Create a star inside the "stars" group
 		var star = stars.create(i*70,0,'star');
 		//Add gravity
-		star.body.gravity.y = 200;
+		star.body.gravity.y = 500;
 		//This gives each star a slightly random bounce value
-		star.body.bounce.y = 0.7+Math.random()*0.3;
+		star.body.bounce.y = 0.7+ Math.random()*0.2;
 	}
 
 	// Player

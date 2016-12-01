@@ -165,6 +165,13 @@ function update() {
 		player.frame = 4;
 	}
 
+	//Allow the player to jump if they are touching the ground
+	//The player will fall to the ground automatically because we enabled gravity
+	if (cursors.up.isDown && player.body.touching.down)
+	{
+		player.body.velocity.y = -350;
+	}
+
 	// Enemy AI
 	if (enemy1.x > 759){
 		enemy1.body.velocity.x = -120;
@@ -174,11 +181,6 @@ function update() {
 		enemy1.animations.play('right');
 	}
 
-	//Allow the player to jump if they are touching the ground
-	//The player will fall to the ground automatically because we enabled gravity
-	if (cursors.up.isDown && player.body.touching.down)
-	{
-		player.body.velocity.y = -350;
-	}
+
 
 }

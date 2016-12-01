@@ -57,32 +57,32 @@ function create() {
 }
 
 function update() {
-	// Collision for player / enemy and the platforms
+	//Collision between user and platforms
 	game.physics.arcade.collide(player, platforms);
 	game.physics.arcade.collide(enemy1, platforms);
-	// Resets player sprite speed
+
+	//reset player velocity
 	player.body.velocity.x = 0;
 
-	// If key pressed
+	//keyboard event
 	if (cursors.left.isDown) {
-		pl.body.velocity.x = -150;
-		player.animations.play('left');
-	} else if (cursors.right.isDown) {
-		player.body.velocity.x = 150;
-		player.animations.play('right');
-	} else {
-		// when player sprite stops
+		player.body.velocity.x= -150;
+		player.animations.play("left");
+	}else if (cursors.right.isDown) {
+		player.body.velocity.x= 150;
+		player.animations.play("right");
+	}else {
+		//when player sprite stops
 		player.animations.stop();
 		player.frame = 4;
 	}
 
-	// Enemy AI
-	if (enemy1.x > 759){
-		enemy1.body.velocity.x = -120;
-		enemy1.animations.play('left');
-	} else if (enemy1.x < 405){
-		enemy1.body.velocity.x = 120;
-		enemy1.animations.play('right');
+	//allow player sprite to jump
+	if(cursors.up.isDown && player.body.touching.down)
+	{
+		player.body.velocity.y = -350;
 	}
+
+
 
 }

@@ -128,7 +128,7 @@ function create() {
 
 	//16,16 coordinates to place the text
 	//Score:0 is the default string to display when the game loads
-	scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+	scoreText = game.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
 
 	//Here we'll create 12 stars evenly spaced apart
 	for (var i=0; i<12; i++) 
@@ -222,7 +222,7 @@ function update() {
 	if (enemy2.x > 250){
 		enemy2.body.velocity.x = -120;
 		enemy2.animations.play('left2');
-	} else if (enemy2.x < 1){
+	} else if (enemy2.x < 30){
 		enemy2.body.velocity.x = 120;
 		enemy2.animations.play('right2');
 	}

@@ -223,10 +223,10 @@ function update() {
 	// Enemy AI2
 	if (enemy2.x > 210){
 		enemy2.body.velocity.x = -120;
-		enemy2.animations.play('left2');
+		enemy2.animations.play('left');
 	} else if (enemy2.x < 30){
 		enemy2.body.velocity.x = 120;
-		enemy2.animations.play('right2');
+		enemy2.animations.play('right');
 	}
 
 	function collectStar (player,star) {

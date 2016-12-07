@@ -185,8 +185,8 @@ function update() {
 	game.physics.arcade.collide(stars, platforms);
 	//the function "collectStar" will be called whenever the player walks over the stars
 	game.physics.arcade.overlap(player, stars, collectStar, null, this);
-	game.physics.arcade.overlap(player, enemy1, lossScore1, null, this);
-	game.physics.arcade.overlap(player, enemy2, lossScore2, null, this);
+	game.physics.arcade.overlap(player, enemy1,loseScore1, null, this);
+	game.physics.arcade.overlap(player, enemy2,loseScore2, null, this);
 
 	// Resets player sprite speed
 	player.body.velocity.x = 0;
@@ -244,14 +244,14 @@ function update() {
 	    star.body.bounce.y = 0.7 + Math.random() * 0.2;
 	}
 
-	// function loseScore1 (player,enemy1){
-	// 	score-=5;
-	// 	scoreText.text = "Score: " +score;
-	// }
+	function loseScore1 (player,enemy1){
+		score-=5;
+		scoreText.text = "Score: " +score;
+	}
 
-	// function loseScore2 (player,enemy2){
-	// 	score-=5;
-	// 	scoreText.text = "Score: " +score;
-	// }
+	function loseScore2 (player,enemy2){
+		score-=5;
+		scoreText.text = "Score: " +score;
+	}
 
 }

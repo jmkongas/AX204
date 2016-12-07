@@ -237,7 +237,7 @@ function update() {
 		scoreText.text = "Score: " +score;
 
 		// Create new star
-		stars.create(Math.floor(Math.random() * 750), 0, 'star');
+		star=stars.create(Math.floor(Math.random() * 750), 0, 'star');
 	    //  Let gravity do its thing
 	    star.body.gravity.y = 200;
 	    //  This just gives each star a slightly random bounce value

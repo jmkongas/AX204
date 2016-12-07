@@ -185,8 +185,8 @@ function update() {
 	game.physics.arcade.collide(stars, platforms);
 	//the function "collectStar" will be called whenever the player walks over the stars
 	game.physics.arcade.overlap(player, stars, collectStar, null, this);
-	// game.physics.arcade.overlap(player, enemy1, lossScore1, null, this);
-	// game.physics.arcade.overlap(player, enemy2, lossScore2, null, this);
+	game.physics.arcade.overlap(player, enemy1, lossScore1, null, this);
+	game.physics.arcade.overlap(player, enemy2, lossScore2, null, this);
 
 	// Resets player sprite speed
 	player.body.velocity.x = 0;

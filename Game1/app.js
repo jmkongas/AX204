@@ -245,11 +245,13 @@ function update() {
 	}
 
 	function loseScore1 (player,enemy1){
+		enemy1.kill();
 		score-=5;
 		scoreText.text = "Score: " +score;
 	}
 
 	function loseScore2 (player,enemy2){
+		enemy2.kill();
 		score-=5;
 		scoreText.text = "Score: " +score;
 	}

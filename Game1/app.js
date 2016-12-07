@@ -244,14 +244,14 @@ function update() {
 	    star.body.bounce.y = 0.7 + Math.random() * 0.2;
 	}
 
-	function loseScore1 (player,enemy1){
-		score-=5;
-		scoreText.text = "Score: " +score;
-	}
+	// function loseScore1 (player,enemy1){
+	// 	score-=5;
+	// 	scoreText.text = "Score: " +score;
+	// }
 
-	function loseScore2 (player,enemy2){
-		score-=5;
-		scoreText.text = "Score: " +score;
-	}
+	// function loseScore2 (player,enemy2){
+	// 	score-=5;
+	// 	scoreText.text = "Score: " +score;
+	// }
 
 }

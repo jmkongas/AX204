@@ -165,8 +165,8 @@ function create() {
 
 	enemy2 = game.add.sprite(10, 20, 'baddie');
 		// animate sprite
-		enemy2.animations.add('left2', [0,1], 10, true);
-		enemy2.animations.add('right2', [2,3], 10, true);
+		enemy2.animations.add('left', [0,1], 10, true);
+		enemy2.animations.add('right', [2,3], 10, true);
 		// add physics
 		game.physics.arcade.enable(enemy2);
 		enemy2.body.bounce.y = 0.2;

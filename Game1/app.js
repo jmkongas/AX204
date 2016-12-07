@@ -219,7 +219,7 @@ function update() {
 	}
 
 	// Enemy AI2
-	if (enemy2.x > 250){
+	if (enemy2.x > 230){
 		enemy2.body.velocity.x = -120;
 		enemy2.animations.play('left2');
 	} else if (enemy2.x < 30){
